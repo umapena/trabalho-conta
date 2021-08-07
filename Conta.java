@@ -12,24 +12,33 @@ public class Conta {
 		this.saldo = 0;
 	}
 	
-	public boolean sacar(float valor) {
-		if (valor > saldo) { 
+	public void sacar(float valor) {
+		if (valor <= 0) {
+			System.out.println("Você precisa informar um valor válido para sacar.");
+			return;
+		}
+		else if (valor > this.saldo) { 
 			System.out.println("\nSaldo insuficiente.");
-			System.out.println("Você precisa de mais R$" + (valor - this.saldo) + " para efetuar um saque deste valor.");
-			return false; 
+			System.out.println("Você precisa de mais R$" + (valor - this.saldo) + " para efetuar um saque deste valor."); 
+			return;
 		}
 		else {
-			saldo -= valor; 
+			this.saldo -= valor; 
 			System.out.println("\nSaque efetuado com sucesso.");
 			System.out.println("Saldo atual: R$" + this.saldo);
-			return true; 
 		}
 	}
 	
 	public void depositar(float valor) {
-		saldo += valor;
-		System.out.println("\n" + this.correntista + ", seu depósito de R$" + valor + " foi efetuado com sucesso!");
-		System.out.println("Saldo atual: " + this.saldo);
+		if (valor <= 0) { 
+			System.out.println("Você precisa informar um valor válido para depositar.");
+			return;
+		} 
+		else {
+			this.saldo += valor;
+			System.out.println("\n" + this.correntista + ", seu depósito de R$" + valor + " foi efetuado com sucesso!");
+			System.out.println("Saldo atual: " + this.saldo); 
+		}
 	}
 	
 	@Override

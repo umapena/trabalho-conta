@@ -2,8 +2,6 @@ package trabalhoconta;
 
 import java.util.Scanner;
 
-import aula10.Conta;
-
 public class UsarConta {
 
 	public static void main(String[] args) {
